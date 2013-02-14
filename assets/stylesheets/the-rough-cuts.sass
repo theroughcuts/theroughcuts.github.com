@@ -1,0 +1,65 @@
+// The Rough Cuts - Styles
+// =======================
+
+@import 'compass/reset'
+@import 'mixins'
+
+// Colours and grid
+$spacing          : 1rem
+$background-color : #232323
+$text-color       : white
+
+// Type
+$headings-font: 'mplus-1m'
+
+h1
+  margin-bottom: $spacing
+  font-size: 2.9rem
+  font-family: $headings-font
+  font-weight: 200
+  text-transform: uppercase
+
+h2
+  font-family: $headings-font
+
+html, body
+  width: 100%
+  height: 100%
+  overflow: hidden
+  background: $background-color
+  font-weight: 400
+  word-spacing: .1rem
+
+body>section
+  position: fixed
+  width: 100%
+  height: 100%
+
+.background
+  +vendor-filter(grayscale(100%))
+  position: fixed
+  top: 0
+  left: 0
+  min-height: 100%
+  min-width: 1024px
+  width: 100%
+  height: auto
+
+.content
+  position: absolute
+  padding: 20px
+  background: rgba(black, .75)
+  color: $text-color
+
+.what-is
+
+  h1
+    margin-bottom: $spacing/2
+
+  h2
+    margin-bottom: $spacing
+
+  .content
+    left: 50px
+    top: 50px
+    width: 400px
