@@ -7,6 +7,12 @@
   -ms-transition     : $parameters
   transition         : $parameters
 
+@mixin vendor-transition-delay($parameters)
+  -webkit-transition-delay : $parameters
+  -moz-transition-delay    : $parameters
+  -ms-transition-delay     : $parameters
+  transition-delay         : $parameters
+
 @mixin vendor-transform($parameters)
   -webkit-transform : $parameters
   -moz-transform    : $parameters
