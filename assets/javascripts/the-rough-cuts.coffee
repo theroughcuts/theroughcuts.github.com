@@ -17,7 +17,7 @@ class Screen extends Backbone.View
   layout:
 
     # Sections are always a 3rd of the screen size
-    sectionSize: 1/3
+    sectionWidth: 1/3
 
     # Get the gutter size from CSS
     gutter: parseInt $body.css 'padding-left'
@@ -28,16 +28,16 @@ class Screen extends Backbone.View
     App.Router.navigate $section.attr('class'), true
 
   # Sets the size of each section in a cascade-like effect
-  setSectionsSize: ->
+  setSectionsWidth: ->
     for section in $body.find('>section')
       $section = $ section
-      $section.width @recommendedSectionSize()
+      $section.width @recommendedSectionWidth()
 
-  # Find out a good size for each section in the screen
-  recommendedSectionSize: ->
-    size = (window.innerWidth * @layout.sectionSize)
-    size = size - @layout.gutter*1.5
-    size
+  # Find out a good width for each section in the screen
+  recommendedSectionWidth: ->
+    width = (window.innerWidth * @layout.sectionWidth)
+    width = width - @layout.gutter*1.5
+    width
 
 class Router extends Backbone.Router
   routes:
@@ -64,7 +64,7 @@ $ ->
     Router: new Router
 
   debouncedResize = _.debounce ->
-    App.Screen.setSectionsSize()
+    App.Screen.setSectionsWidth()
   , 300
 
   $window.on 'resize', -> debouncedResize()
