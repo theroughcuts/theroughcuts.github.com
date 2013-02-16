@@ -10,7 +10,8 @@ $background-color : black
 $text-color       : white
 
 // Font
-$headings-font: 'museo-sans-condensed'
+$sans-serif: "museo-sans-condensed"
+$serif: "ff-meta-serif-web-pro"
 
 html, body
   position: fixed
@@ -26,7 +27,8 @@ body
   white-space: nowrap
 
 body>section
-  +vendor-transition(all .25s ease-out)
+  +vendor-transition(width .25s ease-out)
+  +vendor-filter(grayscale(100%) blur(2px))
   display: inline-block
   position: relative
   height: 100%
@@ -35,9 +37,7 @@ body>section
   cursor: pointer
 
   &:hover
-
-    img
-      +vendor-filter(none)
+    +vendor-filter(none)
 
   &:last-of-type
     margin-right: 0
@@ -52,7 +52,6 @@ body>section
     +vendor-transition-delay(500ms)
 
 .background
-  +vendor-filter(grayscale(100%))
   position: absolute
   top: 0
   left: 0
@@ -67,6 +66,7 @@ body>section
   top: 50px
   width: 400px
   padding: 20px
+  white-space: normal
   background: rgba(black, .75)
   color: $text-color
 
@@ -76,29 +76,36 @@ body>section
     margin-bottom: $spacing/2
 
   h2
-    margin-bottom: $spacing
+    margin-bottom: $spacing*2
 
 // Type
+
 h1
   margin-bottom: $spacing
-  font-size: 2.9rem
-  font-family: $headings-font
+  font-size: 3.1rem
+  font-family: $sans-serif
   font-weight: 100
   text-transform: uppercase
 
 h2
-  font-family: $headings-font
-  font-size: 1.3rem
+  font-family: $sans-serif
+  font-size: 1.4rem
 
 p
-  font-weight: 300
+  margin-bottom: $spacing
+  font-size: 1rem
+  line-height: 1.3
+  font-family: $serif
+  font-weight: 500
 
+// ---
 
 // The different states of the UI
 
 body.what-is
 
   .what-is
+    +vendor-filter(none)
     width: 100% !important
     cursor: auto
 
@@ -109,6 +116,7 @@ body.talks
     margin: 0
 
   .talks
+    +vendor-filter(none)
     width: 100% !important
     cursor: auto
 
@@ -119,7 +127,8 @@ body.contact
     margin: 0
 
   .contact
+    +vendor-filter(none)
     width: 100% !important
     cursor: auto
 
-
+// ---

@@ -24,7 +24,7 @@ class Screen extends Backbone.View
 
   # What happens when you click a section
   clickSection: (event) ->
-    $section = $(event.target).closest 'section'
+    $section = $(event.target).closest 'section:not(.content)'
     App.Router.navigate $section.attr('class'), true
 
   # Sets the size of each section in a cascade-like effect
