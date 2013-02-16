@@ -32,6 +32,7 @@ body>section
   height: 100%
   margin-right: $spacing*2
   overflow: hidden
+  cursor: pointer
 
   &:hover
 
@@ -91,4 +92,34 @@ h2
 
 p
   font-weight: 300
+
+
+// The different states of the UI
+
+body.what-is
+
+  .what-is
+    width: 100% !important
+    cursor: auto
+
+body.talks
+
+  .what-is
+    width: 0 !important
+    margin: 0
+
+  .talks
+    width: 100% !important
+    cursor: auto
+
+body.contact
+
+  .what-is, .talks
+    width: 0 !important
+    margin: 0
+
+  .contact
+    width: 100% !important
+    cursor: auto
+
 

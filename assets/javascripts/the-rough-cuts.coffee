@@ -9,7 +9,9 @@ $body   = $ 'body'
 $window = $ window
 
 class Screen extends Backbone.View
-  el: $ 'body'
+  el     : $ 'body'
+  events :
+    'click section' : 'clickSection'
 
   # Layout specific variables
   layout:
@@ -19,6 +21,11 @@ class Screen extends Backbone.View
 
     # Get the gutter size from CSS
     gutter: parseInt $body.css 'padding-left'
+
+  # What happens when you click a section
+  clickSection: (event) ->
+    $section = $(event.target).closest 'section'
+    App.Router.navigate $section.attr('class'), true
 
   # Sets the size of each section in a cascade-like effect
   setSectionsSize: ->
@@ -32,9 +39,29 @@ class Screen extends Backbone.View
     size = size - @layout.gutter*1.5
     size
 
+class Router extends Backbone.Router
+  routes:
+    ''        : 'home'
+    'what-is' : 'whatIs'
+    'talks'   : 'talks'
+    'contact' : 'contact'
+
+  home: ->
+    $body.removeClass()
+
+  whatIs: ->
+    $body.removeClass().addClass 'what-is'
+
+  talks: ->
+    $body.removeClass().addClass 'talks'
+
+  contact: ->
+    $body.removeClass().addClass 'contact'
+
 $ ->
-  App =
+  window.App =
     Screen: new Screen
+    Router: new Router
 
   debouncedResize = _.debounce ->
     App.Screen.setSectionsSize()
@@ -43,3 +70,4 @@ $ ->
   $window.on 'resize', -> debouncedResize()
   $window.trigger 'resize'
 
+  Backbone.history.start pushState: true
