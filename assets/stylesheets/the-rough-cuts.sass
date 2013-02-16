@@ -30,7 +30,7 @@ body
   white-space: nowrap
 
 body>section
-  +vendor-transition(width .25s ease-out)
+  +vendor-transition(all .25s ease-out)
   +vendor-filter(grayscale(100%) blur(1px))
   display: inline-block
   position: relative
@@ -180,3 +180,9 @@ body.contact
     cursor: auto
 
 // ---
+
+// I've heard responsive is just making shit vertical instead of
+// horizontal, AMIRITE??
+
+@import 'responsive'
+
