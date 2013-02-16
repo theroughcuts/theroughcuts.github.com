@@ -4,6 +4,9 @@
 @import 'compass/reset'
 @import 'mixins'
 
+*
+  box-sizing: border-box
+
 // Colours and grid
 $spacing          : 10px
 $background-color : black
@@ -28,7 +31,7 @@ body
 
 body>section
   +vendor-transition(width .25s ease-out)
-  +vendor-filter(grayscale(100%) blur(2px))
+  +vendor-filter(grayscale(100%) blur(1px))
   display: inline-block
   position: relative
   height: 100%
@@ -91,6 +94,31 @@ body>section
       margin-bottom: $spacing
       font-family: $sans-serif
       font-size: 90%
+
+form
+
+  &>*
+    margin-bottom: $spacing
+    font-size: 1rem
+    background: $text-color
+    color: $background-color
+    font-family: $sans-serif
+
+  input, textarea
+    width: 100%
+    padding: $spacing/2
+    resize: none
+    border: none
+    outline: none
+    box-shadow: inset 1px 1px 1rem rgba(black, .4)
+
+  textarea
+    height: 6rem
+
+  button
+    padding: $spacing/2 $spacing
+    margin-left: 0
+    border: none
 
 // Type
 

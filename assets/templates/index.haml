@@ -65,12 +65,20 @@
               How I spent a year homeless but got to work on
               GitHub tickets and found true happiness.
 
-
-
     %section.contact
       %img.background(src="/images/auditorium.jpg")
       %section.content
         %h1 Contact
-        %h2
-          Get in touch!
+        %p
+          Get in touch with us and don't let us miss on your
+          great input. We'd love to know how you think we should
+          run this this shit, since you obviously know it and we don't.
+        %form(action="foo" method="POST")
+          %input(type="email" name="email" placeholder="Email address")
+          %textarea(name="message" placeholder="Message")
+          %button(type="submit") Send it
+        %p
+          If you're a sponsor however, we would, seriously, love to
+          hear from you!
+
     %script(src="/javascripts/the-rough-cuts.js")
