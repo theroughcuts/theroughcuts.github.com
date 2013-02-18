@@ -116,6 +116,19 @@ form
     margin-left: 0
     border: none
 
+.go-home
+  display: none
+  position: absolute
+  top: $spacing
+  left: $spacing
+  font-size: 1rem
+  z-index: 2
+  color: white
+  border-bottom: 0
+  text-shadow: 2px 2px 0 rgba(black, .5)
+  font-family: $sans-serif
+  font-weight: 900
+
 // Type
 
 a
@@ -154,6 +167,9 @@ body.what-is
     width: 100% !important
     cursor: auto
 
+    .go-home
+      display: block
+
 body.talks
 
   .what-is
@@ -165,6 +181,10 @@ body.talks
     width: 100% !important
     cursor: auto
 
+    .go-home
+      display: block
+
+
 body.contact
 
   .what-is, .talks
@@ -175,6 +195,9 @@ body.contact
     +vendor-filter(none)
     width: 100% !important
     cursor: auto
+
+    .go-home
+      display: block
 
 // ---
 

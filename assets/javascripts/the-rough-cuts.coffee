@@ -12,7 +12,8 @@ $body   = $ 'body'
 class Screen extends Backbone.View
   el     : $ 'body'
   events :
-    'click section' : 'clickSection'
+    'click section'  : 'clickSection'
+    'click .go-home' : 'clickGoBack'
 
   # Layout specific variables
   layout:
@@ -43,6 +44,11 @@ class Screen extends Backbone.View
   clickSection: (event) ->
     $section = $(event.target).closest 'section:not(.content)'
     App.Router.navigate $section.attr('class'), true
+
+  # The "Go back" link on each page when active
+  clickGoBack: (event) ->
+    event.preventDefault()
+    history.back()
 
   # Sets the size of each section in a cascade-like effect
   setSectionsSize: ->
