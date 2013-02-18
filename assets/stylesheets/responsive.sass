@@ -7,11 +7,23 @@
 @media all and (max-width: 320px)
 
   html
-    font-size: 55%
+    font-size: 60%
 
   body>section
     -webkit-overflow-scrolling: touch
     overflow-y: auto
+
+    .background
+      display: none
+
+    &.what-is
+      background: url(/images/mic.jpg)
+
+    &.talks
+      background: url(/images/red-seats.jpg)
+
+    &.contact
+      background: url(/images/auditorium.jpg)
 
 html.narrow
 
